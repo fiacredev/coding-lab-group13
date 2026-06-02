@@ -7,7 +7,7 @@ echo "securing medical log data"
 if [ -d "active_logs" ]; then
 	chmod 700 active_logs
 
-	echo "permissions have been updated successfully"
+	echo "permissions have been updated successfully no issue"
 	echo "Updated Permission: "
 	ls -ld active_logs
 else
