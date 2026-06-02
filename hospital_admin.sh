@@ -1,22 +1,4 @@
-<<<<<<< HEAD
 !#/bin/bash
-
-secure_data() {
-
-echo "securing medical log data"
-
-if [ -d "active_logs" ]; then
-	chmod 700 active_logs
-
-	echo "permissions have been updated successfully no issue"
-	echo "Updated Permission: "
-	ls -ld active_logs
-else
-	echo "ERROR: active_logs directory is not found here"
-fi
-}
-=======
-#!/bin/bash
 
 # Creating the initialise_system ()
 
@@ -49,7 +31,20 @@ initialise_system () {
 
 }
 
+# securing data
 
+secure_data() {
 
-	
->>>>>>> c0a97245c1592ab0ecc5be6e8c27e3b2bdbc8673
+echo "securing medical log data"
+
+if [ -d "active_logs" ]; then
+	chmod 700 active_logs
+
+	echo "permissions have been updated successfully no issue"
+	echo "Updated Permission: "
+	ls -ld active_logs
+else
+	echo "ERROR: active_logs directory is not found here"
+fi
+}
+
