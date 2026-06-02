@@ -10,6 +10,7 @@ initialise_system () {
 
 	else "Creating active_logs directory --------"
 		mkdir active_logs
+	fi
 
 # -- Checking and creating archived_logs
 	if [ -d "archived_logs" ]; then
@@ -17,7 +18,18 @@ initialise_system () {
 
 	else "Creating archived_logs direcotry ------"
 		mkdir archived_logs
+	fi
 
+# -- Checking and creating reports
+	if [ -d "reports" ]; then
+		echo "reports already exists"
+
+	else " Creating reports directory -----"
+		mkdir reports
+
+	fi 
+
+}
 
 
 
