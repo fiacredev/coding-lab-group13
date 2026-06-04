@@ -1,4 +1,4 @@
-!#/bin/bash
+#!/bin/bash
 
 # Creating the initialise_system ()
 
