@@ -49,4 +49,12 @@ water_audit(){
         }
     ' "$water_log_file")
 
+    all_records=$(awk -F' \\| ' '
+        $2 == "ICU_WATER_RESERVE" {
+            count++
+        }
+        END {
+            print count
+        }
+    ' "$water_log_file")
 }
