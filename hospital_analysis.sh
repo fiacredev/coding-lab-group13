@@ -28,4 +28,43 @@ process_vitals() {
     echo "Critical alerts saved to reports/critical_alerts.txt"
 }
 
-# water audit function gonna be next
+water_audit(){
+    water_log_file="active_logs/water_usage_log.log"
+
+    if [ ! -f "$water_log_file" ]; then
+        echo "No water usage log found."
+        return
+    fi
+
+    average=$(awk -F' \\| ' '
+        $2 == "ICU_WATER_RESERVE" {
+            sum += $3
+            count++
+        }
+        END {
+            if (count > 0)
+                print sum / count
+            else
+                print 0
+        }
+    ' "$water_log_file")
+
+    all_records=$(awk -F' \\| ' '
+        $2 == "ICU_WATER_RESERVE" {
+            count++
+        }
+        END {
+            print count
+        }
+    ' "$water_log_file")
+
+    printf "\n"
+    printf "┌─────────────────────────────────────────────┐\n"
+    printf "│      KENYATTA NATIONAL HOSPITAL REPORT      │\n"
+    printf "└─────────────────────────────────────────────┘\n"  
+    printf "%-20s : %s\n" "Resource" "ICU_WATER_RESERVE"
+    printf "%-20s : %d\n" "Records Analysed" "$all_records"
+    printf "%-20s : %.2f Litres\n" "Average Usage" "$average"
+    printf "%-20s : %s\n" "Generated" "$(date)"
+    printf "===============================================\n"
+}
