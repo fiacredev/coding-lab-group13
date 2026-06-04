@@ -1,50 +1,45 @@
-!#/bin/bash
+#!/bin/bash
 
-# Creating the initialise_system ()
+# initialize_system — create log directories if missing
+initialize_system() {
+    if [ -d "active_logs" ]; then
+        echo "active_logs already exists"
+    else
+        echo "Creating active_logs directory..."
+        mkdir active_logs
+    fi
 
-initialise_system () {
+    if [ -d "archived_logs" ]; then
+        echo "archived_logs already exists"
+    else
+        echo "Creating archived_logs directory..."
+        mkdir archived_logs
+    fi
 
-# -- Checking and creating acitve_logs 	
-	if [ -d "active_logs" ]; then
-		echo "active_logs already exists"
-
-	else "Creating active_logs directory --------"
-		mkdir active_logs
-	fi
-
-# -- Checking and creating archived_logs
-	if [ -d "archived_logs" ]; then
-		echo "archived_logs already exists"
-
-	else "Creating archived_logs direcotry ------"
-		mkdir archived_logs
-	fi
-
-# -- Checking and creating reports
-	if [ -d "reports" ]; then
-		echo "reports already exists"
-
-	else " Creating reports directory -----"
-		mkdir reports
-
-	fi 
-
+    if [ -d "reports" ]; then
+        echo "reports already exists"
+    else
+        echo "Creating reports directory..."
+        mkdir reports
+    fi
 }
 
-# securing data
-
+# secure_data — owner-only access on active_logs
 secure_data() {
+    echo "Securing medical log data..."
 
-echo "securing medical log data"
-
-if [ -d "active_logs" ]; then
-	chmod 700 active_logs
-
-	echo "permissions have been updated successfully no issue"
-	echo "Updated Permission: "
-	ls -ld active_logs
-else
-	echo "ERROR: active_logs directory is not found here"
-fi
+    if [ -d "active_logs" ]; then
+        chmod 700 active_logs
+        echo "Permissions updated successfully."
+        echo "Updated permissions:"
+        ls -l active_logs
+        ls -ld active_logs
+    else
+        echo "ERROR: active_logs directory not found."
+    fi
 }
 
+# run setup in order and confirm completion
+initialize_system
+secure_data
+echo "System Environment Secured — $(date)"

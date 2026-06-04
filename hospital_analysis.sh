@@ -8,11 +8,21 @@ process_vitals() {
     > reports/critical_alerts.txt
 
     grep "CRITICAL" active_logs/heart_rate_log.log \
-        | awk -F',' '{print $1","$2","$3}' \
+        | awk -F'|' '{
+            gsub(/^ +| +$/, "", $1)
+            gsub(/^ +| +$/, "", $2)
+            gsub(/^ +| +$/, "", $3)
+            print $1 "," $2 "," $3
+        }' \
         >> reports/critical_alerts.txt
 
     grep "CRITICAL" active_logs/temperature_log.log \
-        | awk -F',' '{print $1","$2","$3}' \
+        | awk -F'|' '{
+            gsub(/^ +| +$/, "", $1)
+            gsub(/^ +| +$/, "", $2)
+            gsub(/^ +| +$/, "", $3)
+            print $1 "," $2 "," $3
+        }' \
         >> reports/critical_alerts.txt
 
     echo "Critical alerts saved to reports/critical_alerts.txt"
