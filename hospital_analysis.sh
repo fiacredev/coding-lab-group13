@@ -18,12 +18,4 @@ process_vitals() {
     echo "Critical alerts saved to reports/critical_alerts.txt"
 }
 
-# Facility Auditor: average water usage for ICU_WATER_RESERVE
-# water_audit() {
-#     echo "TODO: Member 6 — implement water_audit() with awk and printf"
-# }
-
-# Run analysis on live data in active_logs
-mkdir -p reports
-process_vitals
-water_audit
+# water audit function gonna be next
