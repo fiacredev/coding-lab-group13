@@ -57,4 +57,14 @@ water_audit(){
             print count
         }
     ' "$water_log_file")
+
+    printf "\n"
+    printf "┌─────────────────────────────────────────────┐\n"
+    printf "│      KENYATTA NATIONAL HOSPITAL REPORT      │\n"
+    printf "└─────────────────────────────────────────────┘\n"  
+    printf "%-20s : %s\n" "Resource" "ICU_WATER_RESERVE"
+    printf "%-20s : %d\n" "Records Analysed" "$all_records"
+    printf "%-20s : %.2f Litres\n" "Average Usage" "$average"
+    printf "%-20s : %s\n" "Generated" "$(date)"
+    printf "===============================================\n"
 }
