@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Clinical Analyst: critical vitals from heart rate and temperature logs
+# Member 5: Clinical Analyst: critical vitals from heart rate and temperature logs
 process_vitals() {
     echo "Processing critical vital signs..."
 
@@ -25,7 +25,7 @@ process_vitals() {
         }' \
         >> reports/critical_alerts.txt
 
-    echo "Critical alerts saved to reports/critical_alerts.txt"
+    echo "Critical alerts saved to reports/critical_alerts.txt."
 }
 
 water_audit(){
