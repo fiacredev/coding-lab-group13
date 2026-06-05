@@ -53,7 +53,7 @@ run_full_setup
 while true; do
     echo ""
     echo "==============================="
-    echo "KNH Hospital Admin Dashboard"
+    echo "KNH Hospital Admin Dashboard."
     echo "==============================="
     echo "1. Initialize system"
     echo "2. Secure data"
