@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Clinical Analyst: critical vitals from heart rate and temperature logs
+# Member 5: Clinical Analyst: critical vitals from heart rate and temperature logs
 process_vitals() {
     echo "Processing critical vital signs..."
 
@@ -25,7 +25,7 @@ process_vitals() {
         }' \
         >> reports/critical_alerts.txt
 
-    echo "Critical alerts saved to reports/critical_alerts.txt"
+    echo "Critical alerts saved to reports/critical_alerts.txt."
 }
 
 water_audit(){
@@ -73,12 +73,12 @@ water_audit(){
 # =====================================
 
 echo "====================================="
-echo "KNH Hospital Analysis System"
+echo "KNH Hospital Analysis System."
 echo "====================================="
-echo "1. Process Critical Vitals"
-echo "2. Water Audit"
-echo "3. Run Both"
-echo "4. Exit"
+echo "1. Process critical vitals."
+echo "2. Run water audit."
+echo "3. Run both analyses."
+echo "4. Exit."
 echo "====================================="
 
 read -p "Enter your choice (1-4): " choice
@@ -96,7 +96,7 @@ case $choice in
         water_audit
         ;;
     4)
-        echo "Exiting system..."
+        echo "Exiting analysis system..."
         ;;
     *)
         echo "Invalid choice. Please enter a number between 1 and 4."
